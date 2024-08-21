@@ -4,7 +4,6 @@ import "./App.css";
 const App = () => {
   const [input, setInput] = useState("0");
   const [lastInput, setLastInput] = useState(null);
-
   const val = (e) => {
     if (e === "=") {
       try {
@@ -42,16 +41,32 @@ const App = () => {
           </div>
           <hr />
           <div className="btn">
-            <span className="op" onClick={() => val("C")} title="Clear all input field">
+            <span
+              className="op"
+              onClick={() => val("C")}
+              title="Clear all input field"
+            >
               C
             </span>
-            <span className="op" onClick={() => val("X")} title="Clear single digit">
+            <span
+              className="op"
+              onClick={() => val("X")}
+              title="Clear single digit"
+            >
               del
             </span>
-            <span className="op" onClick={() => val("%")} title="Modulus Operator">
+            <span
+              className="op"
+              onClick={() => val("%")}
+              title="Modulus Operator"
+            >
               %
             </span>
-            <span className="op" onClick={() => val("/")} title="Division Operator">
+            <span
+              className="op"
+              onClick={() => val("/")}
+              title="Division Operator"
+            >
               /
             </span>
             <span className="no" onClick={() => val("7")} title="Integer value">
@@ -63,7 +78,11 @@ const App = () => {
             <span className="no" onClick={() => val("9")} title="Integer value">
               9
             </span>
-            <span className="op" onClick={() => val("*")} title="Multiplication Operator">
+            <span
+              className="op"
+              onClick={() => val("*")}
+              title="Multiplication Operator"
+            >
               *
             </span>
             <span className="no" onClick={() => val("4")} title="Integer value">
@@ -75,7 +94,11 @@ const App = () => {
             <span className="no" onClick={() => val("6")} title="Integer value">
               6
             </span>
-            <span className="op" onClick={() => val("-")} title="Subtraction Operator">
+            <span
+              className="op"
+              onClick={() => val("-")}
+              title="Subtraction Operator"
+            >
               -
             </span>
             <span className="no" onClick={() => val("1")} title="Integer value">
@@ -87,7 +110,11 @@ const App = () => {
             <span className="no" onClick={() => val("3")} title="Integer value">
               3
             </span>
-            <span className="op" onClick={() => val("+")} title="Addition Operator">
+            <span
+              className="op"
+              onClick={() => val("+")}
+              title="Addition Operator"
+            >
               +
             </span>
             <span className="no" onClick={() => val("0")} title="Integer value">
@@ -96,10 +123,18 @@ const App = () => {
             <span className="no" onClick={() => val(".")} title="Decimal point">
               .
             </span>
-            <span className="no" onClick={() => val("00")} title="Integer value">
+            <span
+              className="no"
+              onClick={() => val("00")}
+              title="Integer value"
+            >
               00
             </span>
-            <span className="fn" onClick={() => val("=")} title="Calculate result">
+            <span
+              className="fn"
+              onClick={() => val("=")}
+              title="Calculate result"
+            >
               =
             </span>
           </div>
