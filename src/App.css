@@ -1,38 +1,264 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+
+/* CSS Variables for reusability and consistency */
+:root {
+    --font-family: 'Poppins', sans-serif;
+    --color-gradient: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%);
+    --color-background: hsla(255,100%,100%,0.35);
+    --color-shadow-light: rgba(255, 255, 255, 0.45);
+    --color-shadow-dark: rgba(0, 0, 0, 0.45);
+    --color-icon-hover: #FF057C;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: var(--color-gradient);
+    padding: 10px;
+}
+
+.container::before,
+.container::after {
+    position: absolute;
+    content: "";
+    z-index: 0;
+    width: 16rem;
+    height: 16rem;
+    backdrop-filter: blur(5px);
+    background: hsla(0,0%,0%,0.1);
+    border-radius: 25pt;
+    animation: moveShape 1s linear infinite;
+}
+
+.container::before {
+    top: 0;
+    left: 0;
+    box-shadow: inset 2px 2px 5px var(--color-shadow-light), inset 12px 12px 15px var(--color-shadow-dark);
+    animation: up-down 5s alternate-reverse infinite;
   }
+  @keyframes up-down {
+      50%{
+          border-radius: 50%;
+          box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset -12px -12px 15px hsla(0,100%,0%,0.45);
+          transform: translateY(60%) scale(-2)  translateX(-150%);
+      }
+  }    
+  
+
+.container::after {
+    bottom: 0;
+    right: 0;
+    border-radius: 5pt;
+    box-shadow: 2px 2px 5px hsla(255,100%,100%,0.45),-12px -12px 15px hsla(0,100%,0%,0.45);
+    animation: down-up 5s alternate-reverse infinite;
+}
+@keyframes down-up {
+    50%{
+        border-radius: 50%;
+        box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset -12px -12px 15px hsla(0,100%,0%,0.45);
+        transform: translateY(-60%) scale(-2)  translateX(150%);
+    }
+}
+.todo-app {
+    z-index: 1;
+    width: 100%;
+    max-width: 540px;
+    padding: 2rem;
+    backdrop-filter: blur(5px);
+    background: var(--color-background);
+    margin: auto;
+    box-shadow: -2px -2px 1px var(--color-shadow-light), 2px 2px 1px var(--color-shadow-dark);
+    border-radius: 50pt;
+    animation: border 1s linear infinite;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes border {
+    0% { border-radius: 10pt; }
+    50% { border-radius: 50pt 75pt; }
+    100% { border-radius: 10pt 20pt 40pt 80pt / 80pt 60pt 10pt 20pt; }
 }
 
-.App-link {
-  color: #61dafb;
+.todo-app::before,
+.todo-app::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 5pt 15pt;
+    background: conic-gradient(#4CC3FF, #5BA6F2, #7C64D5, #FF057C);
+    animation: spin 2s steps(4) infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-app::before {
+    top: 0;
+    right: 0;
+}
+
+.todo-app::after {
+    bottom: 0;
+    left: 0;
+    animation-direction: reverse;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.todo-app h2 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: transparent;
+    background-image: var(--color-gradient);
+    -webkit-background-clip: text;
+}
+
+.todo-app h2 img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: hsla(255,100%,100%,0.65);
+    border-radius: 5pt;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    transition: all 0.2s linear;
+    box-shadow: -5px -5px 10px var(--color-shadow-dark), 5px 5px 10px var(--color-shadow-light);
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 14px 10px;
+    font-size: 14px;
+    transition: all 0.2s linear;
+}
+
+button {
+  display: grid;
+    border: none;
+    outline: none;
+    padding: 16px 20px;
+    margin: auto;
+    background-image: var(--color-gradient);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5pt;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+button:hover {
+    background-image: linear-gradient(-225deg, #4CC3FF 0%, #7C64D5 48%, #FF057C 100%);
+}
+
+ul {
+    max-height: 200px;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+}
+
+::-webkit-scrollbar-track {
+    background-image: var(--color-gradient);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    backdrop-filter: blur(5px);
+    background-image: var(--color-gradient);
+    border-radius: 1rem;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 45px;
+    user-select: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    border-radius: 40px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #555;
+}
+
+ul li.checked::before {
+    background-image: url("./images/check_circle.svg");
+}
+
+ul li span {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 34px;
+    color: #6494EB;
+    line-height: 40px;
+    text-align: center;
+    transition: all 0.1s linear;
+}
+
+ul li span:hover {
+    border-radius: 50%;
+    color: var(--color-icon-hover);
+    background: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .todo-app {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .row {
+        flex-direction: column;
+        padding-left: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
 }
