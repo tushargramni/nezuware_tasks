@@ -34,8 +34,9 @@ const App = () => {
   return (
     <div>
       <div className="bg">
-        <header>Calculator</header>
         <section className="calci">
+          <header>Calculator</header>
+          <hr />
           <div className="number digital-text" title="Input field" readOnly>
             {input}
           </div>
