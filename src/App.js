@@ -47,9 +47,9 @@ function App() {
     <div className="App">
       <main className="container">
         <section className="todo-app">
-          <h2>
-            To-Do List <img src={imageUrl} alt="To-Do List" />
-          </h2>
+          <span>
+            ToDo-App <img src={imageUrl} alt="To-Do List" />
+          </span>
           <section className="row">
             <input
               type="text"

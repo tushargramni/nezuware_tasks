@@ -25,7 +25,9 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-image: var(--color-gradient);
+    /* background-image: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%); */
+    background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
+    background-image: radial-gradient(circle at 67% 83%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 1%,transparent 1%, transparent 5%,transparent 5%, transparent 100%),radial-gradient(circle at 24% 80%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 27%,transparent 27%, transparent 63%,transparent 63%, transparent 100%),radial-gradient(circle at 23% 5%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 26%,transparent 26%, transparent 82%,transparent 82%, transparent 100%),radial-gradient(circle at 21% 11%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 35%,transparent 35%, transparent 45%,transparent 45%, transparent 100%),radial-gradient(circle at 10% 11%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 21%,transparent 21%, transparent 81%,transparent 81%, transparent 100%),radial-gradient(circle at 19% 61%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 20%,transparent 20%, transparent 61%,transparent 61%, transparent 100%),radial-gradient(circle at 13% 77%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 63%,transparent 63%, transparent 72%,transparent 72%, transparent 100%),radial-gradient(circle at 30% 93%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 33%,transparent 33%, transparent 82%,transparent 82%, transparent 100%),linear-gradient(90deg, rgb(22, 176, 207),rgb(103, 7, 215));
     padding: 10px;
 }
 
@@ -77,7 +79,7 @@
     max-width: 540px;
     padding: 2rem;
     backdrop-filter: blur(5px);
-    background: var(--color-background);
+    background: white;
     margin: auto;
     box-shadow: -2px -2px 1px var(--color-shadow-light), 2px 2px 1px var(--color-shadow-dark);
     border-radius: 50pt;
@@ -90,43 +92,97 @@
     100% { border-radius: 10pt 20pt 40pt 80pt / 80pt 60pt 10pt 20pt; }
 }
 
-.todo-app::before,
-.todo-app::after {
+.todo-app::before
+{
     content: "";
     position: absolute;
     width: 50px;
     height: 50px;
-    border-radius: 5pt 15pt;
-    background: conic-gradient(#4CC3FF, #5BA6F2, #7C64D5, #FF057C);
-    animation: spin 2s steps(4) infinite;
+    border-radius: 50pt ;
+    /* background: repeating-linear-gradient(#4CC3FF 0%, #5BA6F2 30%, #7C64D5 40%, #FF057C 60%); */
+    /* background-image: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%); */
+    background-image: linear-gradient(225deg,#650CD7,#4E58D6,#4F6CD7,#509AD9,white);
+    animation: spin 5s steps(10) infinite;
 }
+.todo-app::after {
+  content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50pt ;
+    background-image: linear-gradient(225deg,#650CD7,#4E58D6,#4F6CD7,#509AD9,white);
+    animation: spin2 5s steps(10) infinite;
 
+}
 .todo-app::before {
     top: 0;
     right: 0;
+    /* animation-direction: normal; */
+    /* animation-direction: alternate-reverse; */
 }
 
 .todo-app::after {
     bottom: 0;
     left: 0;
-    animation-direction: reverse;
+    /* animation-direction: reverse; */
+    /* animation-direction: alternate; */
+}
+@keyframes spin2{
+  0%{
+    transform: translate(0px,0px);
+  }
+  20%{
+    transform: translate(500px,0px) ;
+  }
+  40%{
+    transform: translate(500px,-220px) ;
+  }
+  60%{
+    transform: translate(-0px,-220px) ;
+  }
+  80%{
+    transform: rotate(56400deg) translate(0px,0px);
+  }
+  100%{
+    transform: translate(0px,0px);
+  }
 }
 
-@keyframes spin {
-    100% { transform: rotate(360deg); }
+@keyframes spin{
+  0%{
+    transform: translate(0px,0px);
+  }
+  20%{
+    transform: translate(-500px,0px) ;
+  }
+  40%{
+    transform: translate(-500px,220px) ;
+  }
+  60%{
+    transform: translate(50px,220px) ;
+  }
+  80%{
+    transform: rotate(56400deg) translate(0px,0px);
+  }
+  100%{
+    transform: translate(0px,0px);
+  }
 }
 
-.todo-app h2 {
+.todo-app span {
     display: flex;
     align-items: center;
     font-size: 2rem;
-    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: "Courier",monospace;
+    margin: auto  auto 1rem auto;
+    width: max-content;
     color: transparent;
     background-image: var(--color-gradient);
     -webkit-background-clip: text;
 }
 
-.todo-app h2 img {
+.todo-app span img {
     width: 30px;
     margin-left: 10px;
 }
@@ -148,9 +204,12 @@ input {
     flex: 1;
     border: none;
     outline: none;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: #AA43B6;
     background: transparent;
     padding: 14px 10px;
-    font-size: 14px;
+    font-size: 18px;
     transition: all 0.2s linear;
 }
 
