@@ -45,7 +45,7 @@
 }
 
 .container::before {
-    top: 0;
+    top: auto;
     left: 0;
     box-shadow: inset 2px 2px 5px var(--color-shadow-light), inset 12px 12px 15px var(--color-shadow-dark);
     animation: up-down 5s alternate-reverse infinite;
@@ -54,13 +54,13 @@
       50%{
           border-radius: 50%;
           box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset -12px -12px 15px hsla(0,100%,0%,0.45);
-          transform: translateY(60%) scale(-2)  translateX(-150%);
+          transform: translateY(0%) scale(-2)  translateX(-150%);
       }
   }    
   
 
 .container::after {
-    bottom: 0;
+    bottom: auto;
     right: 0;
     border-radius: 5pt;
     box-shadow: 2px 2px 5px hsla(255,100%,100%,0.45),-12px -12px 15px hsla(0,100%,0%,0.45);
@@ -70,7 +70,7 @@
     50%{
         border-radius: 50%;
         box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset -12px -12px 15px hsla(0,100%,0%,0.45);
-        transform: translateY(-60%) scale(-2)  translateX(150%);
+        transform: translateY(-0%) scale(-2)  translateX(150%);
     }
 }
 .todo-app {
@@ -99,9 +99,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50pt ;
-    /* background: repeating-linear-gradient(#4CC3FF 0%, #5BA6F2 30%, #7C64D5 40%, #FF057C 60%); */
-    /* background-image: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%); */
-    background-image: linear-gradient(225deg,#650CD7,#4E58D6,#4F6CD7,#509AD9,white);
+    background-image: var(--color-gradient);
     animation: spin 5s steps(10) infinite;
 }
 .todo-app::after {
@@ -110,22 +108,18 @@
     width: 50px;
     height: 50px;
     border-radius: 50pt ;
-    background-image: linear-gradient(225deg,#650CD7,#4E58D6,#4F6CD7,#509AD9,white);
+    background-image: var(--color-gradient);
     animation: spin2 5s steps(10) infinite;
 
 }
 .todo-app::before {
     top: 0;
     right: 0;
-    /* animation-direction: normal; */
-    /* animation-direction: alternate-reverse; */
 }
 
 .todo-app::after {
     bottom: 0;
     left: 0;
-    /* animation-direction: reverse; */
-    /* animation-direction: alternate; */
 }
 @keyframes spin2{
   0%{
@@ -207,6 +201,7 @@ input {
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: #AA43B6;
+    text-transform: capitalize;
     background: transparent;
     padding: 14px 10px;
     font-size: 18px;

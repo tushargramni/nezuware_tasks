@@ -7,21 +7,19 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    const savedTasks = localStorage.getItem("data");
-    if (savedTasks) {
-      setTasks(JSON.parse(savedTasks));
-    }
+    const savedTasks = JSON.parse(localStorage.getItem("data")) || [];
+    setTasks(savedTasks);
   }, []);
 
   const addTask = () => {
-    if (taskBox === "") {
-      alert("You must write something");
-    } else {
+    if (taskBox.trim()) {
       const newTask = { text: taskBox, isChecked: false };
       const updatedTasks = [...tasks, newTask];
       setTasks(updatedTasks);
-      saveData(updatedTasks);
+      localStorage.setItem("data", JSON.stringify(updatedTasks));
       setTaskBox("");
+    } else {
+      alert("You must write something");
     }
   };
 
@@ -30,17 +28,13 @@ function App() {
       i === index ? { ...task, isChecked: !task.isChecked } : task
     );
     setTasks(updatedTasks);
-    saveData(updatedTasks);
+    localStorage.setItem("data", JSON.stringify(updatedTasks));
   };
 
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
-    saveData(updatedTasks);
-  };
-
-  const saveData = (tasks) => {
-    localStorage.setItem("data", JSON.stringify(tasks));
+    localStorage.setItem("data", JSON.stringify(updatedTasks));
   };
 
   return (
@@ -50,17 +44,16 @@ function App() {
           <span>
             ToDo-App <img src={imageUrl} alt="To-Do List" />
           </span>
-          <section className="row">
+          <div className="row">
             <input
               type="text"
               className="input-box"
               placeholder="Add your text"
-              spellCheck="false"
               value={taskBox}
               onChange={(e) => setTaskBox(e.target.value)}
             />
-            <button onClick={addTask}> +</button>
-          </section>
+            <button onClick={addTask}>Add +</button>
+          </div>
           <ul className="list-container">
             {tasks.map((task, index) => (
               <li
