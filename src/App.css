@@ -27,14 +27,14 @@ header {
   font-size: 5rem;
   padding: 1rem;
   margin: auto;
+  display: flex;
+  align-items: center;
   position: relative;
   color: white;
-  /* font-family: "Digital-7", monospace; */
   animation: move 1s linear 1;
   text-align: center;
   animation-play-state: running;
 }
-
 header:before{
   position: absolute;
   width: 1px;
@@ -118,6 +118,7 @@ hr{
   text-align: center;
   border-radius: 5pt;
   cursor: pointer;
+  font-weight:500;
   animation: move 1s ease-in 1;
   font-family: "Digital-7";
   transition: all 0.2s alternate;
@@ -128,14 +129,14 @@ hr{
 span.op{
   border-radius: 0 1rem;
   background-color: #6a95ed;
-  color: white;
+  color: darkslateblue;
 }
 span.fn{
   border-radius: 50%;
   color:white;
   font-size: larger;
   padding: 0.5rem ;
-  background-color: darkorchid;
+  background-color: darkslateblue;
 }
 .btn span:hover {
   color:darkslateblue;
