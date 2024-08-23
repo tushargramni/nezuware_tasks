@@ -5,7 +5,6 @@ import { HiOutlineBars3 } from "react-icons/hi2";
 import {
   Box,
   Drawer,
-  Icon,
   List,
   ListItem,
   ListItemButton,
@@ -48,7 +47,7 @@ const Navbar = () => {
       <div className="nav-logo-container">
         <img src={Logo} alt="" />
       </div>
-      <div className="nav-links-container">
+      <div className="navbar-links-container">
         <a href="/">Home</a>
         <a href="/">About</a>
         <a href="/">Testimonials</a>

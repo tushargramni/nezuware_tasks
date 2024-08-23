@@ -65,6 +65,8 @@ nav {
 .home-banner-container {
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 3rem;
 }
 .home-bannerImage-container {
@@ -75,12 +77,14 @@ nav {
   max-width: 700px;
 }
 .home-image-section {
-  max-width: 600px;
+  max-width: 100px;
+  margin: auto;
   flex: 1;
 }
 .home-text-section {
   flex: 1;
   display: flex;
+  margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
