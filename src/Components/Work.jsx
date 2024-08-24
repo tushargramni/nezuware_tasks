@@ -24,14 +24,14 @@ const Work = () => {
   return (
     <div className="work-section-wrapper">
       <div className="work-section-top">
-        <p className="primary0subheading">Work</p>
-        <h1 className="primary0subheading">How it Works?</h1>
+        <p className="primary-subheading">Work</p>
+        <h1 className="primary-subheading">How it Works?</h1>
         <p className="primary-text">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus
           doloremque soluta rem ut alias tempora iste neque ad cum dolore.
         </p>
       </div>
-      <div className="work-section-button">
+      <div className="work-section-bottom">
         {workInfoData.map((data) => (
           <div className="work-section-info">
             <div className="info-boxes-img-container">
