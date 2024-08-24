@@ -1,14 +1,14 @@
 import React from "react";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Services from "./components/Services";
-import Portfolio from "./components/Portfolio";
-import Testimonials from "./Components/Testimonials";
-import Team from "./components/Team";
-import Blog from "./components/Blog";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import "./App.css";
+import Hero from "./Components/Hero";
+import About from "./Components/About";
+import Services from "./Components/Services";
+import Portfolio from "./Components/Portfolio";
+import Testimonials from "./Components/Testimonials";
+import Team from "./Components/Team";
+import Blog from "./Components/Blog";
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 
 const App = () => (
   <div className="App">
