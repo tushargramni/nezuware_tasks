@@ -1,41 +1,16 @@
 import React from "react";
-import AboutBackground from "../Assets/about-background.png";
-import AboutBackgroundImage from "../Assets/about-background-image.png";
-import { BsFillPlayCircleFill } from "react-icons/bs";
+import "./About.css";
 
-const About = () => {
-  return (
-    <div className="about-section-container">
-      <div className="about-background-image-container">
-        <img src={AboutBackground} alt="" />
-      </div>
-      <div className="about-section-image-container">
-        <img src={AboutBackgroundImage} alt="" />
-      </div>
-      <div className="about-section-text-container">
-        <h1 className="primary-subheading">About</h1>
-        <h1 className="primary-heading">
-          Food Is A Important part of a Balanced Diet
-        </h1>
-        <p className="primary-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-          corporis alias obcaecati illo doloribus impedit amet, rerum tempore
-        </p>
-        <p className="primary-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-          corporis alias obcaecati illo doloribus impedit amet, rerum tempore
-        </p>
-        <div className="about-buttons-container">
-          <button className="secondary-button">Learn More</button>
-          <button className="watch-video-button">
-            {""}
-            <BsFillPlayCircleFill />
-            Watch Video
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
+const About = () => (
+  <section className="about">
+    <h2>Who We Are</h2>
+    <p>
+      Nezuware is a dynamic software development company dedicated to crafting
+      innovative solutions that empower businesses worldwide. Our mission is to
+      deliver exceptional results by harnessing cutting-edge technology and
+      creative strategies, driving growth and success for our partners.
+    </p>
+  </section>
+);
 
 export default About;

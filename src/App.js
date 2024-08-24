@@ -1,23 +1,27 @@
 import React from "react";
-import "./App.css";
-import Home from "./Components/Home";
-import Work from "./Components/Work";
-import About from "./Components/About";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Services from "./components/Services";
+import Portfolio from "./components/Portfolio";
 import Testimonials from "./Components/Testimonials";
-import Contact from "./Components/Contact";
-import Footer from "./Components/Footer";
+import Team from "./components/Team";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import "./App.css";
 
-const App = () => {
-  return (
-    <div>
-      <Home />
-      <About />
-      <Work />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
-  );
-};
+const App = () => (
+  <div className="App">
+    <Hero />
+    <About />
+    <Services />
+    <Portfolio />
+    <Testimonials />
+    <Team />
+    <Blog />
+    <Contact />
+    <Footer />
+  </div>
+);
 
 export default App;
